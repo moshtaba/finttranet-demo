@@ -3,16 +3,27 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { StepsModule } from 'primeng/steps';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import { AppService } from 'src/services/app.service';
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    StepsModule,
+    ToastModule,
   ],
-  providers: [],
+  providers: [
+    MessageService,
+    AppService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

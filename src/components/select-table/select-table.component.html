@@ -1,0 +1,34 @@
+<p-card>
+    <ng-template pTemplate="title"> Select One User </ng-template>
+    <ng-template pTemplate="content">
+        <p-table [value]="users" [(selection)]="selectedUser" dataKey="id" (onRowSelect)="onRowSelect($event)">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 4rem"></th>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Role</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-user>
+                <tr>
+                    <td>
+                        <p-tableRadioButton [value]="user"></p-tableRadioButton>
+                    </td>
+                    <td>{{user.id}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.role}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+        <small *ngIf="(submit && !selectedUser)" class="p-error">You should select one user</small>   
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <div class="d-flex justify-content-between">
+          <p-button label="Prev" (onClick)="prevPage()" icon="pi pi-angle-left" iconPos="left">
+          </p-button>
+          <p-button label="Next" (onClick)="nextPage()" icon="pi pi-angle-right" iconPos="right">
+          </p-button>
+        </div>
+    </ng-template>
+</p-card>

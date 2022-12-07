@@ -1,0 +1,24 @@
+<p-card>
+  <ng-template pTemplate="title"> Upload Image </ng-template>
+  <ng-template pTemplate="content">
+       <!-- <p-fileUpload name="myfile[]" [customUpload]="true" (uploadHandler)="onBasicUpload($event)"></p-fileUpload> -->
+       <label class="image-upload-container btn btn-bwm">
+        <span *ngIf="!url">Click Here</span>
+        <input #imageInput
+               type="file"
+               accept="image/*"
+               [formControl]="imageControl"
+               (change)="onBasicUpload(imageInput)">
+
+        <img src="{{url}}" >
+      </label>
+
+      <small *ngIf="(imageControl.dirty && !imageControl.valid) || (submit && !imageControl.valid)" class="p-error">image is required.</small>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <div class="d-flex justify-content-end">
+      <p-button label="Next" (onClick)="nextPage()" icon="pi pi-angle-right" iconPos="right">
+      </p-button>
+    </div>
+  </ng-template>
+</p-card>

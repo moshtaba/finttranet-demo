@@ -1,0 +1,37 @@
+<p-card>
+    <ng-template pTemplate="title"> Upload Image </ng-template>
+    <ng-template pTemplate="content">
+        <form [formGroup]="form" (ngSubmit)="nextPage()">
+            <div class="p-fluid">
+                <div class="form-group">
+                    <label for="amount">Amount</label>
+                    <p-inputNumber formControlName="amount"></p-inputNumber>
+                </div>
+        
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <p-calendar formControlName="date" [minDate]="minDate" [maxDate]="maxDate"></p-calendar>
+                </div>
+        
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <p-dropdown [options]="options" formControlName="status"></p-dropdown>
+                </div>
+        
+                <div class="form-group">
+                    <label for="source">Source</label>
+                    <input type="text" formControlName="source" pInputText />
+                </div>
+            </div>
+        </form>
+        <small *ngIf="(submit && !form.valid)" class="p-error">form is not correctly completed.</small>   
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <div class="d-flex justify-content-between">
+        <p-button label="Prev" (onClick)="prevPage()" icon="pi pi-angle-left" iconPos="left">
+        </p-button>
+        <p-button label="Next" (onClick)="nextPage()" icon="pi pi-angle-right" iconPos="right">
+        </p-button>
+      </div>
+    </ng-template>
+  </p-card>

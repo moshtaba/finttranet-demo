@@ -1,0 +1,30 @@
+<p-card *ngIf="appState">
+    <ng-template pTemplate="title"> Sammary </ng-template>
+    <ng-template pTemplate="content">
+
+        <img src="{{url}}" width="100">
+
+        <br>
+
+        <div>
+            <div>{{appState.form.amount}}</div>
+            <div>{{appState.form.date | date}}</div>
+            <div>{{appState.form.status}}</div>
+            <div>{{appState.form.source}}</div>
+        </div>
+
+        <br>
+
+        <div>
+            {{appState.user.name}} - {{appState.user.role}}
+        </div>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <div class="d-flex justify-content-between">
+          <p-button label="Prev" (onClick)="prevPage()" icon="pi pi-angle-left" iconPos="left">
+          </p-button>
+          <p-button label="Complete" (onClick)="nextPage()" icon="pi pi-angle-right" iconPos="right" styleClass="p-button-success">
+          </p-button>
+        </div>
+      </ng-template>
+</p-card>
